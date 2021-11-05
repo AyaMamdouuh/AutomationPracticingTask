@@ -1,15 +1,10 @@
 package Tests.Login;
 
 import Base.base;
-import Pages.Home;
-import Pages.Authentication;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-
-import io.cucumber.java.en.When;
 
 public class LoginStepDef extends base{
     @When("User enter the email {string}")
