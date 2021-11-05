@@ -21,6 +21,7 @@ Feature: Registration
       Then create an account button is clickable
       When User click on Create new account button
       Then Error message appear with text "<Message>"
+      When Close the driver
 
       Examples:
         | Email  | Message|

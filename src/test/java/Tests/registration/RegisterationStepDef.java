@@ -22,6 +22,8 @@ public class RegisterationStepDef extends base {
     public void signupPageOpenSuccessfully() throws InterruptedException {
         Thread.sleep(8000);
         Assert.assertEquals(driver.getCurrentUrl(),"http://automationpractice.com/index.php?controller=authentication&back=my-account#account-creation");
+        Thread.sleep(3000);
+
     }
 
     @Then("Error message appear with text {string}")
@@ -29,6 +31,8 @@ public class RegisterationStepDef extends base {
         Thread.sleep(3000);
         Assert.assertTrue(automationPractcing.authentication.getErrorMsg().isDisplayed());
         Assert.assertEquals(automationPractcing.authentication.getErrorMsg().getText(),msg_properties.getProperty(msg));
+        Thread.sleep(3000);
+        driver.quit();
     }
 
     @When("User Choose the gender {string}")
@@ -120,6 +124,7 @@ public class RegisterationStepDef extends base {
     public void userAccountPageOpenSuccessfully() throws InterruptedException {
         Thread.sleep(2000);
         Assert.assertTrue(automationPractcing.myAccount.getMyaccount().isDisplayed());
+        Thread.sleep(3000);
         driver.quit();
     }
 
@@ -158,6 +163,7 @@ public class RegisterationStepDef extends base {
         Thread.sleep(3000);
         Assert.assertTrue(automationPractcing.signup.getErrorMsg().isDisplayed());
         Assert.assertEquals(automationPractcing.signup.getErrorMsg().getText(),msg_properties.getProperty(msg));
+        Thread.sleep(3000);
         driver.quit();
 
     }
@@ -171,5 +177,10 @@ public class RegisterationStepDef extends base {
     public void signupButtonShouldBeClickable() {
         Assert.assertTrue(automationPractcing.signup.getSubmitButton().isEnabled());
 
+    }
+
+    @When("Close the driver")
+    public void closeTheDriver() {
+        driver.quit();
     }
 }

@@ -32,12 +32,14 @@ public class LoginStepDef extends base{
         Thread.sleep(2000);
         Assert.assertTrue(automationPractcing.myAccount.getMyaccount().isDisplayed());
         Assert.assertEquals(automationPractcing.myAccount.getUserName().getText(),data_properties.getProperty(user));
+        Thread.sleep(5000);
         driver.quit();
     }
 
     @Then("Error MSG appear with text {string}")
-    public void errorMSGAppearWithText(String msg) {
+    public void errorMSGAppearWithText(String msg) throws InterruptedException {
         Assert.assertEquals(automationPractcing.authentication.getLoginErrorMsg().getText(),msg_properties.getProperty(msg));
+        Thread.sleep(5000);
         driver.quit();
     }
 
@@ -73,6 +75,7 @@ public class LoginStepDef extends base{
     public void confirmationEmailSendSuccessfully() throws InterruptedException {
         Thread.sleep(3000);
         Assert.assertTrue(automationPractcing.forgetPassword.getConfirmationMSG().isDisplayed());
+        Thread.sleep(5000);
         driver.quit();
     }
 }
