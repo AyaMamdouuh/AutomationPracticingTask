@@ -7,7 +7,7 @@ You can change browser resolution as you need from file [resources/config.proper
 
 All registeration and login data saved in file data.properties
 
-Be sure to change the value of (emailValid3) and (emailValid4)each time run scenario (New user  signup with valid data) in Registeration Module as the email will be already registered
+Be sure to change the value of (emailValid3) and (emailValid4) from file [resource/data.properties]each time run scenario (New user  signup with valid data) in Registeration Module as the email will be already registered
 
 All error message that appear exist in file with name resources/error_Message.properties
 
