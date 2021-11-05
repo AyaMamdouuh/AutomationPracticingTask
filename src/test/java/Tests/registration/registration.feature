@@ -29,7 +29,7 @@ Feature: Registration
         | emailBlank       | invalidEmail       |
 
 
-  Scenario Outline: New user  signup
+  Scenario Outline: New user  signup with valid data
     Given Home page open
     When User click on signup button
     Then Authentication page open
