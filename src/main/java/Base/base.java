@@ -4,6 +4,7 @@ import Pages.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
 
@@ -49,6 +50,12 @@ public class base {
         {
             System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "\\src\\test\\java\\driverBinaries\\chromedriver.exe");
             driver=new FirefoxDriver();
+
+        }
+        else if(config_properties.getProperty("browser_type").equalsIgnoreCase("ie"))
+        {
+            System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") +config_properties.getProperty("driver_Path"));
+            driver = new InternetExplorerDriver();
 
         }
         //driver.manage().window().maximize();
