@@ -38,8 +38,8 @@ Feature: Login
     Then  Error MSG appear with text "<Message>"
     Examples:
       |Email|Password|Message|
-    #  |emailWrongDomain|pass|invalidEmail|
-     # |email|passinvalid|invalidpassword|
-     # |  emailValid1   | pass   |wrongPassword |
+      |emailWrongDomain|pass|invalidEmail|
+      |email|passinvalid|invalidpassword|
+      |  emailValid1   | pass   |wrongPassword |
       |email                |password        |wrongPassword |
 
