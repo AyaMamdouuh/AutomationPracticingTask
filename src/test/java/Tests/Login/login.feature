@@ -1,5 +1,6 @@
 Feature: Login
 
+
   Scenario Outline: New user enter right email and password to signin
     Given Home page open
     When User click on signup button
