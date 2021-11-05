@@ -61,8 +61,8 @@ Feature: Registration
 
     Examples:
       | Email  | Title|FirstName|LastName|Password|Day|Month|Year|Address|City|State|PostCode|Country|Mobile|Company|Home_Number|Additional_info|
-      | emailValid1 |TitleM|  fName1   |  lName      |  pass      |day|month|year|address|city|state|postcode|country|mobile|company|home_number|additional_info|
-      | emailValid2 |TitleF|  fName2   |  lName      |  pass      |day|month|year|address|city|state|postcode|country|mobile|companyBlank|home_numberBlank|additional_infoBlank|
+      | emailValid3 |TitleM|  fName1   |  lName      |  pass      |day|month|year|address|city|state|postcode|country|mobile|company|home_number|additional_info|
+      | emailValid4 |TitleF|  fName2   |  lName      |  pass      |day|month|year|address|city|state|postcode|country|mobile|companyBlank|home_numberBlank|additional_infoBlank|
 
   Scenario Outline: New user  signup with Blank fields
     Given Home page open
