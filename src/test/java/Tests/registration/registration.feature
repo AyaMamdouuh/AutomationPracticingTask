@@ -24,8 +24,11 @@ Feature: Registration
 
       Examples:
         | Email  | Message|
+        #this Email already registered before
         | emailAlreadyExist| existAccount       |
+        #the Email Domain wrong
         | emailWrongDomain | invalidEmail       |
+        #Email field is blank
         | emailBlank       | invalidEmail       |
 
 
@@ -61,7 +64,9 @@ Feature: Registration
 
     Examples:
       | Email  | Title|FirstName|LastName|Password|Day|Month|Year|Address|City|State|PostCode|Country|Mobile|Company|Home_Number|Additional_info|
+      #User enter all field with right data
       | emailValid3 |TitleM|  fName1   |  lName      |  pass      |day|month|year|address|city|state|postcode|country|mobile|company|home_number|additional_info|
+     #User enter only mandatory data
       | emailValid4 |TitleF|  fName2   |  lName      |  pass      |day|month|year|address|city|state|postcode|country|mobile|companyBlank|home_numberBlank|additional_infoBlank|
 
   Scenario Outline: New user  signup with Blank fields
@@ -95,17 +100,30 @@ Feature: Registration
     Then Error message Appear with the text "<Message>"
     Examples:
       | Email  | Title|FirstName|LastName|Password|Day|Month|Year|Address|City|State|PostCode|Country|Mobile|Company|Home_Number|Additional_info|Message|
+      #Keep First name Blank
       | emailValid1 |TitleM|  fNameBlank  |  lName      |  pass      |day|month|year|address|city|state|postcode|country|mobile|company|home_number|additional_info|fNameRequired|
+      #Keep Last name Blank
       | emailValid2 |TitleF|  fName2   |  lNameBlank      |  pass      |day|month|year|address|city|state|postcode|country|mobile|companyBlank|home_numberBlank|additional_infoBlank|lnameRequired|
+     #Keep Password Blank
       | emailValid1 |TitleM|  fName1   |  lName      |  passBlank      |day|month|year|address|city|state|postcode|country|mobile|company|home_number|additional_info|passRequired|
+      #Keep day Blank
       | emailValid2 |TitleF|  fName2   |  lName      |  pass      |dayBlank|month|year|address|city|state|postcode|country|mobile|companyBlank|home_numberBlank|additional_infoBlank|invalidDate|
+      #Keep month Blank
       | emailValid1 |TitleM|  fName1   |  lName      |  pass      |day|monthBlank|year|address|city|state|postcode|country|mobile|company|home_number|additional_info|invalidDate|
+
+      #Keep year blank
       | emailValid2 |TitleF|  fName2   |  lName      |  pass      |day|month|yearBlank|address|city|state|postcode|country|mobile|companyBlank|home_numberBlank|additional_infoBlank|invalidDate|
+      #Keep address1 blank
       | emailValid1 |TitleM|  fName1   |  lName      |  pass      |day|month|year|addressBlank|city|state|postcode|country|mobile|company|home_number|additional_info|addressRequired|
+      #Keep city blank
       | emailValid2 |TitleF|  fName2   |  lName      |  pass      |day|month|year|address|cityBlank|state|postcode|country|mobile|companyBlank|home_numberBlank|additional_infoBlank|cityRequired|
+      #Keep State blank
       | emailValid1 |TitleM|  fName1   |  lName      |  pass      |day|month|year|address|city|stateBlank|postcode|country|mobile|company|home_number|additional_info|stateRequired|
+      #Keep postal code blank
       | emailValid2 |TitleF|  fName2   |  lName      |  pass      |day|month|year|address|city|state|postcodeBlank|country|mobile|companyBlank|home_numberBlank|additional_infoBlank|postcodeRequired|
+      #Keep country blank
       | emailValid1 |TitleM|  fName1   |  lName      |  pass      |day|month|year|address|city|state|postcode|countryBlank|mobile|company|home_number|additional_info|countryRequired|
+      #keep mobile number blank
       | emailValid2 |TitleF|  fName2   |  lName      |  pass      |day|month|year|address|city|state|postcode|country|mobileBlank|companyBlank|home_numberBlank|additional_infoBlank|mobileRequired|
 
   Scenario Outline: New user  signup with Password less than five character
@@ -173,9 +191,13 @@ Feature: Registration
     Then Error message Appear with the text "<Message>"
     Examples:
       | Email  | Title|FirstName|LastName|Password|Day|Month|Year|Address|City|State|PostCode|Country|Mobile|Company|Home_Number|Additional_info|Message|
+      #First name have numbers
       | emailValid1 |TitleM|  fNamenumbers   |  lName      |  pass     |day|month|year|address|city|state|postcode|country|mobile|company|home_number|additional_info|fNameInvalid|
+     #Last name have numbers
       | emailValid1 |TitleM|  fName1   |  lNamenumbers      |  pass     |day|month|year|address|city|state|postcode|country|mobile|company|home_number|additional_info|lNameInvalid|
+      #First name have special character
       | emailValid1 |TitleM|  fNamespecialCharacters   |  lName      |  pass     |day|month|year|address|city|state|postcode|country|mobile|company|home_number|additional_info|fNameInvalid|
+      #Last name have special character
       | emailValid1 |TitleM|  fName1   |  lNamespecialCharacters      |  pass     |day|month|year|address|city|state|postcode|country|mobile|company|home_number|additional_info|lNameInvalid|
 
   Scenario Outline: New user  signup with  invalid PostCode
@@ -210,9 +232,13 @@ Feature: Registration
 
     Examples:
       | Email  | Title|FirstName|LastName|Password|Day|Month|Year|Address|City|State|PostCode|Country|Mobile|Company|Home_Number|Additional_info|Message|
+      #postal code have character
       | emailValid2 |TitleF|  fName2   |  lName      |  pass      |day|month|year|address|city|state|postcodeCharacter|country|mobile|companyBlank|home_numberBlank|additional_infoBlank|postcodeRequired|
+      #postal code have special character
       | emailValid2 |TitleF|  fName2   |  lName      |  pass      |day|month|year|address|city|state|postcodeSpecialCharacter|country|mobile|companyBlank|home_numberBlank|additional_infoBlank|postCodeInValid|
+      #postal code have less than five digits
       | emailValid2 |TitleF|  fName2   |  lName      |  pass      |day|month|year|address|city|state|postcodeLessFive|country|mobile|companyBlank|home_numberBlank|additional_infoBlank|postcodeRequired|
+      #postal code have more than five digits
       | emailValid2 |TitleF|  fName2   |  lName      |  pass      |day|month|year|address|city|state|postcodeMoreFive|country|mobile|companyBlank|home_numberBlank|additional_infoBlank|postcodeRequired|
 
   Scenario Outline: New user  signup with  invalid Mobile Number
@@ -246,7 +272,10 @@ Feature: Registration
     Then Error message Appear with the text "<Message>"
     Examples:
       | Email  | Title|FirstName|LastName|Password|Day|Month|Year|Address|City|State|PostCode|Country|Mobile|Company|Home_Number|Additional_info|Message|
+      #mobile number have special character
       | emailValid2 |TitleF|  fName2   |  lName      |  pass      |day|month|year|address|city|state|postcode|country|mobileSpecialCharacter|companyBlank|home_numberBlank|additional_infoBlank|mobileInValid|
+
+      #mobile number have character
       | emailValid2 |TitleF|  fName2   |  lName      |  pass      |day|month|year|address|city|state|postcode|country|mobileCharacter|companyBlank|home_numberBlank|additional_infoBlank|mobileInValid|
 
 
