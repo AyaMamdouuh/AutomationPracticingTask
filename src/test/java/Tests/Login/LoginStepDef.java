@@ -1,6 +1,7 @@
 package Tests.Login;
 
 import Base.base;
+import Pages.AutomationPractcing;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -37,10 +38,41 @@ public class LoginStepDef extends base{
     @Then("Error MSG appear with text {string}")
     public void errorMSGAppearWithText(String msg) {
         Assert.assertEquals(automationPractcing.authentication.getLoginErrorMsg().getText(),msg_properties.getProperty(msg));
+        driver.quit();
     }
 
     @Then("Login Submit button is clickable")
     public void loginSubmitButtonIsClickable() {
         Assert.assertTrue(automationPractcing.authentication.getLoginButton().isEnabled());
+    }
+
+    @When("User click on forget the password")
+    public void userClickOnForgetThePassword() {
+        AutomationPractcing.forgetPassword=AutomationPractcing.authentication.clickOnForgetPassword();
+    }
+
+    @Then("Forget passwoed page open successfully")
+    public void forgetPasswoedPageOpenSuccessfully() throws InterruptedException {
+        Thread.sleep(5000);
+        Assert.assertTrue(automationPractcing.forgetPassword.getForgotPasswordPage().isDisplayed());
+    }
+
+    @When("User enter the email address {string}")
+    public void userEnterTheEmailAddress(String mail) {
+        automationPractcing.forgetPassword.enterTheEmail(data_properties.getProperty(mail));
+    }
+
+
+    @And("User click on retrive the password")
+    public void userClickOnRetriveThePassword() {
+        automationPractcing.forgetPassword.clickOnSubmitButton();
+
+    }
+
+    @Then("Confirmation email send successfully")
+    public void confirmationEmailSendSuccessfully() throws InterruptedException {
+        Thread.sleep(3000);
+        Assert.assertTrue(automationPractcing.forgetPassword.getConfirmationMSG().isDisplayed());
+        driver.quit();
     }
 }

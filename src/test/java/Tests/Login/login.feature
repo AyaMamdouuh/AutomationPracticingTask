@@ -1,7 +1,7 @@
 Feature: Login
 
 
-  Scenario Outline: New user enter right email and password to signin
+  Scenario Outline:  user enter right email and password to signin
     Given Home page open
     When User click on signup button
     Then Authentication page open
@@ -14,7 +14,7 @@ Feature: Login
     |Email|Password|UserName|
     |email|pass        |userName|
 
-  Scenario Outline: New user enter blank email or password to signin
+  Scenario Outline:  user enter blank email or password to signin
     Given Home page open
     When User click on signup button
     Then Authentication page open
@@ -30,7 +30,7 @@ Feature: Login
       #Keep password field blank
       |email|passBlank        |passwordRequired|
 
-  Scenario Outline: New user enter invalid email or password to signin
+  Scenario Outline:  user enter invalid email or password to signin
     Given Home page open
     When User click on signup button
     Then Authentication page open
@@ -49,4 +49,18 @@ Feature: Login
       |  emailValid1   | pass   |wrongPassword |
       #Enter Wrong password
       |email                |password        |wrongPassword |
+
+  Scenario Outline: User forgot the password and try to reset it
+    Given Home page open
+    When User click on signup button
+    Then Authentication page open
+    When User click on forget the password
+    Then Forget passwoed page open successfully
+    When User enter the email address "<Email>"
+    And User click on retrive the password
+    Then Confirmation email send successfully
+
+    Examples:
+    |Email|
+    | mail|
 

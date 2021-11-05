@@ -24,6 +24,9 @@ public class Authentication extends base {
     WebElement submitLogin;
     @FindBy(xpath ="//*[@id='center_column']/div[1]/ol/li[1]")
     WebElement LoginErrorMsg;
+    @FindBy(xpath = "//a[@title='Recover your forgotten password']")
+    WebElement forgotPassword;
+
 
     public void enterTheEmail(String mail)
     {
@@ -55,5 +58,11 @@ public class Authentication extends base {
     public WebElement getLoginErrorMsg(){return LoginErrorMsg;}
     public WebElement getLoginButton(){return submitLogin;}
     public WebElement getSubmitButton(){return SubmitButton; }
+
+    public ForgetPassword clickOnForgetPassword()
+    {
+        forgotPassword.click();
+        return new ForgetPassword();
+    }
 }
 
