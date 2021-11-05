@@ -25,7 +25,9 @@ Feature: Login
     Then  Error MSG appear with text "<Message>"
     Examples:
       |Email|Password|Message|
+      #Keep email field blank
       |emailBlank|pass        |emailRequired|
+      #Keep password field blank
       |email|passBlank        |passwordRequired|
 
   Scenario Outline: New user enter invalid email or password to signin
@@ -39,8 +41,12 @@ Feature: Login
     Then  Error MSG appear with text "<Message>"
     Examples:
       |Email|Password|Message|
+      #Enter email with wrong domain
       |emailWrongDomain|pass|invalidEmail|
+      #Enter password less five digits
       |email|passinvalid|invalidpassword|
+      #Enter email doesn't registered
       |  emailValid1   | pass   |wrongPassword |
+      #Enter Wrong password
       |email                |password        |wrongPassword |
 
